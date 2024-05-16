@@ -1,0 +1,17 @@
+{
+    "name": "your-contracts-sdk-package-name",
+    "version": "1.0.0",
+    "main": "dist/generated.ts",
+    "type": "module",
+    "devDependencies": {
+        "@semantic-release/commit-analyzer": "^9.0.2",
+        "@semantic-release/git": "^10.0.1",
+        "@semantic-release/github": "^8.0.7",
+        "@semantic-release/npm": "^9.0.2",
+        "semantic-release": "^23.1.1",
+        "typescript": "^5.4.5"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
