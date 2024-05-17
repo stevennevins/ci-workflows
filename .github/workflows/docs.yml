@@ -1,5 +1,5 @@
 # Workflow for deploying the `forge doc` site to GitHub Pages
-name: Docs
+name: 📖 Docs
 
 on:
   push:
