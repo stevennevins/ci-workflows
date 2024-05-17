@@ -37,4 +37,13 @@ contract Counter {
     function decrement() public {
         number--;
     }
+
+    /**
+     * @notice Sets the counter to a specific value
+     * @dev Directly sets the `number` state variable to the value of `_count`.
+     * @param _count The value to set the counter to.
+     */
+    function setCount(uint256 _count) public {
+        number = _count;
+    }
 }
