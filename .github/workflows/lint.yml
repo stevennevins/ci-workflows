@@ -21,8 +21,6 @@ jobs:
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
-      - name: Build
-        run: forge build --sizes
 
-      - name: Run tests
-        run: forge test -vvv
+      - name: Check formatting
+        run: forge fmt --check
