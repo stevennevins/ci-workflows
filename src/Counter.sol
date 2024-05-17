@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 /**
- *@title A simple counter contract
+ * @title A simple counter contract
  * @dev This contract allows you to increment and set a number stored on the blockchain.
  * The contract is designed to demonstrate basic Solidity concepts and state management.
  */
@@ -27,5 +27,14 @@ contract Counter {
      */
     function increment() public {
         number++;
+    }
+
+    /**
+     * @notice Decrements the counter by one
+     * @dev Subtracts one from the current value of `number`.
+     * This function demonstrates how to modify state variables in a decremental manner.
+     */
+    function decrement() public {
+        number--;
     }
 }
