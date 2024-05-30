@@ -6,9 +6,20 @@ on:
     branches:
       - main
 jobs:
+    
     upload-artifact:
         runs-on: "ubuntu-latest"
         steps:
+          - uses: actions/checkout@v4
+            with:
+                submodules: recursive
+          - name: Install Foundry
+            uses: foundry-rs/foundry-toolchain@v1
+            with:
+                version: nightly
+          - name: Build
+            run: forge build
+            
           - name: "Generate and prepare the contract artifacts"
             run: |
                 mkdir abis
