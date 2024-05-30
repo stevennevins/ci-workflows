@@ -1,12 +1,9 @@
-
-name: Upload ABIs
-
+name: 📦 Upload ABIs
 on:
   push:
     branches:
       - main
 jobs:
-    
     upload-artifact:
         runs-on: "ubuntu-latest"
         steps:
