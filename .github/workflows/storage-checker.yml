@@ -35,7 +35,7 @@ jobs:
           mkdir main
           for file in $(find src -name '*.sol'); do
               contract_name=$(basename "$file" .sol)
-              forge inspect "$contract_name" storageLayout > main/"$contract_name".md
+              forge inspect "$contract_name" storage --pretty > main/"$contract_name".md
           done
       - name: Compare outputs
         run: |
