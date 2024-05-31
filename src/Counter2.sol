@@ -11,6 +11,8 @@ contract Counter2 {
     /// @dev Stored as a uint256, this variable holds the state of the counter's value.
     uint256 public number;
 
+    uint256 public number2;
+
     /**
      * @notice Sets the counter to a new value
      * @dev Assigns a new value to the `number` state variable.

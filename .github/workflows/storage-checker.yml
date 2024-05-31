@@ -27,6 +27,7 @@ jobs:
         env:
           MAIN: ${{ github.event.pull_request.base.sha }}
         run: |
+          git fetch origin $MAIN
           git checkout $MAIN
 
       - name: "Generate and prepare the contract artifacts"
