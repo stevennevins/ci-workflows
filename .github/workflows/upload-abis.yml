@@ -4,28 +4,25 @@ on:
     branches:
       - main
 jobs:
-    upload-artifact:
-        runs-on: "ubuntu-latest"
-        steps:
-          - uses: actions/checkout@v4
-            with:
-                submodules: recursive
-          - name: Install Foundry
-            uses: foundry-rs/foundry-toolchain@v1
-            with:
-                version: nightly
-          - name: Build
-            run: forge build
-
-          - name: "Generate and prepare the contract artifacts"
-            run: |
-                mkdir abis
-                for file in $(find src -name '*.sol'); do
-                    contract_name=$(basename "$file" .sol)
-                    forge inspect "$contract_name" abi > abis/"$contract_name".json
-                done
-          - name: "Store the contract artifacts in CI"
-            uses: "actions/upload-artifact@v4"
-            with:
-                name: "contract-abis"
-                path: "abis"
+  upload-artifact:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+      - name: "Generate and prepare the contract artifacts"
+        run: |
+          mkdir abis
+          for file in $(find src -name '*.sol'); do
+              contract_name=$(basename "$file" .sol)
+              forge inspect "$contract_name" abi > abis/"$contract_name".json
+          done
+      - name: "Store the contract artifacts in CI"
+        uses: "actions/upload-artifact@v4"
+        with:
+          name: "contract-abis"
+          path: "abis"
