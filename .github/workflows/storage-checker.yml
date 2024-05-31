@@ -1,10 +1,10 @@
-name: Check Storage Layout
+name: 🔍 Check Storage Layout
 on:
   pull_request:
     branches:
       - main
 jobs:
-  upload-artifact:
+  check_storage:
     runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v4
