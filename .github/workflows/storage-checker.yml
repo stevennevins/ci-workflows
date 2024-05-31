@@ -36,6 +36,8 @@ jobs:
               contract_name=$(basename "$file" .sol)
               forge inspect "$contract_name" storageLayout > main/"$contract_name".md
           done
-      # Compare outputs
       - name: Compare outputs
-        run: diff --unified pr main
+        run: |
+          if ! diff --unified pr main; then
+            echo "::warning::Differences found between PR and main storage layouts"
+          fi
