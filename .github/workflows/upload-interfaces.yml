@@ -19,7 +19,7 @@ jobs:
           mkdir abis
           mkdir interfaces
           for file in $(find src -name '*.sol'); do
-            if grep -q "interface " "$file"; then
+            if grep -q "interface " "$file" || grep -q "library " "$file"; then
               continue
             fi
             contract_name=$(basename "$file" .sol)

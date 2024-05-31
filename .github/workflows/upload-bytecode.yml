@@ -18,8 +18,12 @@ jobs:
         run: |
           mkdir bytecode
           for file in $(find src -name '*.sol'); do
-              contract_name=$(basename "$file" .sol)
-              forge inspect "$contract_name" bytecode > bytecode/"$contract_name".json
+          for file in $(find src -name '*.sol'); do
+            if grep -q "interface " "$file" || grep -q "library " "$file"; then
+              continue
+            fi
+            contract_name=$(basename "$file" .sol)
+            forge inspect "$contract_name" bytecode > bytecode/"$contract_name".json
           done
       - name: "Store the contract artifacts in CI"
         uses: "actions/upload-artifact@v4"
