@@ -18,7 +18,6 @@ jobs:
         run: |
           mkdir bytecode
           for file in $(find src -name '*.sol'); do
-          for file in $(find src -name '*.sol'); do
             if grep -q "interface " "$file" || grep -q "library " "$file"; then
               continue
             fi
