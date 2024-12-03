@@ -1,0 +1,20 @@
+name: AWS
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start LocalStack
+        uses: LocalStack/setup-localstack@v0.2.3
+        with:
+          image-tag: 'latest'
+          install-awslocal: 'true'
+
+      - name: Start LocalStack services
+        run: |
+          localstack start -d
+          localstack status services
